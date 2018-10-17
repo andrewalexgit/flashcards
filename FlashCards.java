@@ -9,6 +9,7 @@ public class FlashCards {
 	private List<String> keys;
 	private int numQuestions;
 	
+	// The custom file constructor makes it possible to load from a user specified field, or otherwise.
 	FlashCards(String customFile) throws IOException {
 		FILE = new File(customFile);
 		sc = new Scanner(FILE);
@@ -31,6 +32,7 @@ public class FlashCards {
 			numQuestions++;
 		}
 
+		// Storing all keys associated with the HashMap of Questions and answers provides a secondary way of accessing data
 		keys = new ArrayList<>(questions_and_answers.keySet());
 		numQuestions = keys.size();
 
@@ -48,6 +50,7 @@ public class FlashCards {
 		return keys.get(index);
 	}
 
+	// The algorithm used to go in reverse to acquire a key from data
 	public String getQuestion(String answer) {
 
 		String question = "Not found";
